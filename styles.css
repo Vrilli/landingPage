@@ -38,6 +38,8 @@ body {
 
 /* Banner principal */
 .banner {
+    z-index: 1000;
+    position: sticky;
     display: flex;
     background-color: white;
     justify-content: space-between;
@@ -121,6 +123,7 @@ body {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center !important;
+    margin-top: 10px;
     padding: 10px 5px;
     padding-left: 160px;
     padding-right: 160px;
@@ -367,16 +370,38 @@ body {
 
 
 .custom-button {
-    background-color: rgb(255, 0, 0);
-    padding: 20px 5px;
-    text-transform: uppercase;
-    color: white;
+    position: relative;
+    background-color: rgb(255, 0, 0); 
+    color: #fff; 
     width: 50%;
+    text-transform: uppercase;
+    border: none;
     font-weight: bold;
     font-size: 16px;
-    border: none;
-    border-radius: 5px;
+    border-radius: 5px; 
+    padding: 20px 5px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    animation: shadowPulse 2s infinite;
 }
+
+@keyframes shadowPulse {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+        transform: scale(1.05);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        transform: scale(1);
+    }
+}
+
 
 .comentarios {
     padding-right: 250px;

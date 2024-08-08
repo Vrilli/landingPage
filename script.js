@@ -24,10 +24,43 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+// Funtion para el boton de registro
+function seleccionar() {
+    const element = document.querySelector(".custom-button"); 
+    if (element) {
+      
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+
+      
+        window.scrollTo({
+            top: elementPosition - 80, 
+            behavior: 'smooth'
+        });
+    }
+}
+
+// Funtion del formulario 
+
+document.getElementById('submitBtn').addEventListener('click', function (event) {
+    // Obtener los campos del formulario
+    var nombre = document.getElementById('nombre').value.trim();
+    var apellido = document.getElementById('apellido').value.trim();
+    var correo = document.getElementById('correo').value.trim();
+    var phone = document.getElementById('phone').value.trim();
+
+    if (!nombre || !apellido || !correo || !phone) {
+        alert('Todos los campos son requeridos. Por favor, complete todos los campos antes de registrarse.');
+    } else {
+
+        window.location.href = "bienvenido.html";
+    }
+    event.preventDefault();
+});
+
 
 
 // Funtion de la tabla
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const tableBody = document.querySelector('#earnings-table tbody');
 
     async function fetchEarningsData() {
@@ -66,11 +99,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // Funtion Input phone
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const phoneInputField = document.querySelector("#phone");
     const phoneInput = window.intlTelInput(phoneInputField, {
         initialCountry: "auto",
-        geoIpLookup: function(success, failure) {
+        geoIpLookup: function (success, failure) {
             fetch("https://ipinfo.io/json?token=8bc177046c5728", {
                 cache: 'reload'
             }).then(response => {
